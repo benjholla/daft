@@ -1,7 +1,7 @@
 # TODO
 
 ## SAT
-- Problems: [SAT](http://en.wikipedia.org/wiki/Boolean_satisfiability_problem), [MAXSAT](http://en.wikipedia.org/wiki/Maximum_satisfiability_problem), [Pseudo-Boolean](http://www.cril.fr/PB11/), [Minimally Unsatisfiable Subset (MUS)](http://www.cril.fr/SAT11/)
+- Problems: [SAT](http://en.wikipedia.org/wiki/Boolean_satisfiability_problem), [MAXSAT](http://en.wikipedia.org/wiki/Maximum_satisfiability_problem), [Pseudo-Boolean](https://en.wikipedia.org/wiki/Pseudo-Boolean_function), [Minimally Unsatisfiable Subset (MUS)](http://www.cril.fr/SAT11/)
 - BDD SAT
 - conjunctive normal form (CNF), NNF, and DNF
 - [Davis-Putnam-Logemann-Loveland (DPLL) algorithm](http://www.cs.miami.edu/home/geoff/Courses/CSC749-17F/Content/DPLLCDCL.shtml)
