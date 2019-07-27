@@ -3,7 +3,10 @@
 ## SAT
 - Problems: [SAT](http://en.wikipedia.org/wiki/Boolean_satisfiability_problem), [MAXSAT](http://en.wikipedia.org/wiki/Maximum_satisfiability_problem), [Pseudo-Boolean](https://en.wikipedia.org/wiki/Pseudo-Boolean_function), [Minimally Unsatisfiable Subset (MUS)](http://www.cril.fr/SAT11/)
 - BDD SAT
-- conjunctive normal form (CNF), NNF, and DNF
+- Normal forms: desugaring
+  - negation normal form (NNF)
+  - disjunctive normal form (DNF)
+  - conjuctive normal form (CNF)
 - [Davis-Putnam-Logemann-Loveland (DPLL) algorithm](http://www.cs.miami.edu/home/geoff/Courses/CSC749-17F/Content/DPLLCDCL.shtml)
 - [conflict-driven clause learning (CDCL)](https://en.wikipedia.org/wiki/Conflict-driven_clause_learning)
 - brute force search
