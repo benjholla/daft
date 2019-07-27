@@ -1,17 +1,18 @@
 # TODO
 
 ## SAT
+- Problems: [SAT](http://en.wikipedia.org/wiki/Boolean_satisfiability_problem), [MAXSAT](http://en.wikipedia.org/wiki/Maximum_satisfiability_problem), [Pseudo-Boolean](http://www.cril.fr/PB11/), [Minimally Unsatisfiable Subset (MUS)](http://www.cril.fr/SAT11/)
 - BDD SAT
 - conjunctive normal form (CNF), NNF, and DNF
 - [Davis-Putnam-Logemann-Loveland (DPLL) algorithm](http://www.cs.miami.edu/home/geoff/Courses/CSC749-17F/Content/DPLLCDCL.shtml)
 - [conflict-driven clause learning (CDCL)](https://en.wikipedia.org/wiki/Conflict-driven_clause_learning)
 - brute force search
-- MiniSat (Niklas Een and Niklas Sorensson. Proceedings of the Sixth International Conference on Theory and Applications of Satisfiability Testing, LNCS 2919, pp 502-518, 2003.
-)
+- MiniSat (Niklas Een and Niklas Sorensson. Proceedings of the Sixth International Conference on Theory and Applications of Satisfiability Testing, LNCS 2919, pp 502-518, 2003.)
 
 ## SMT
 - theory of equality
 - theory of integers
+- unsatisfied core
 
 ## Properties
 - sensitivity (["sensitivity" conjecture](https://www.quantamagazine.org/mathematician-solves-computer-science-conjecture-in-two-pages-20190725/), [1907.00847.pdf](https://arxiv.org/pdf/1907.00847.pdf))
