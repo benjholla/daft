@@ -9,13 +9,14 @@
   - disjunctive normal form (DNF)
   - conjuctive normal form (CNF)
 - [Davis-Putnam-Logemann-Loveland (DPLL) algorithm](http://www.cs.miami.edu/home/geoff/Courses/CSC749-17F/Content/DPLLCDCL.shtml)
-- [conflict-driven clause learning (CDCL)](https://en.wikipedia.org/wiki/Conflict-driven_clause_learning)
+  - [conflict-driven clause learning (CDCL)](https://en.wikipedia.org/wiki/Conflict-driven_clause_learning) extension to DPLL
 - brute force search
 
 ## SMT
 - theory of equality
 - theory of integers
 - unsatisfied core
+- [DPLL(T)](https://en.wikipedia.org/wiki/DPLL(T))
 
 ## Properties
 - sensitivity (["sensitivity" conjecture](https://www.quantamagazine.org/mathematician-solves-computer-science-conjecture-in-two-pages-20190725/), [1907.00847.pdf](https://arxiv.org/pdf/1907.00847.pdf))
