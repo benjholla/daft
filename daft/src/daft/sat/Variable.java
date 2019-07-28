@@ -48,7 +48,7 @@ public class Variable extends Literal {
 	
 	@Override
 	public String toString() {
-		return (isFalse() ? "\u00AC" : "") + name;
+		return (isFalse() ? Character.toString(Unicode.NOT) : "") + name;
 	}
 	
 }

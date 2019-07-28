@@ -27,7 +27,7 @@ public class Clause implements Iterable<Literal> {
 	}
 	
 	public String toString() {
-		return "(" + literals.stream().map(Literal::toString).collect(Collectors.joining(" \u2228 ")) + ")";
+		return "(" + literals.stream().map(Literal::toString).collect(Collectors.joining(" " + Unicode.OR + " ")) + ")";
 	}
 
 }

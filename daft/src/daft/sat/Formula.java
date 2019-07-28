@@ -28,7 +28,7 @@ public class Formula implements Iterable<Clause> {
 	
 	@Override
 	public String toString() {
-		return "(" + clauses.stream().map(Clause::toString).collect(Collectors.joining(" \u2227 ")) + ")";
+		return "(" + clauses.stream().map(Clause::toString).collect(Collectors.joining(" " + Unicode.AND + " ")) + ")";
 	}
 
 }

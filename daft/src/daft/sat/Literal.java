@@ -58,7 +58,7 @@ public class Literal {
 
 	@Override
 	public String toString() {
-		return (isFalse() ? "\u00AC" : "") + id;
+		return (isFalse() ? Character.toString(Unicode.NOT) : "") + id;
 	}
 	
 }
