@@ -1,5 +1,6 @@
 package daft.sat;
 
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -8,37 +9,37 @@ import java.util.Objects;
 public class Literal {
 
 	protected final int id;
-	protected boolean value = true;
+	protected boolean negation = false;
 	
 	public Literal(int id) {
 		this.id = id;
 	}
 	
-	public Literal(int id, boolean value) {
+	public Literal(int id, boolean negation) {
 		this.id = id;
-		this.value = value;
+		this.negation = negation;
 	}
 
-	public boolean isTrue() {
-		return value;
-	}
-	
-	public boolean isFalse() {
-		return !value;
+	public boolean isNegated() {
+		return negation;
 	}
 	
 	public Literal negate() {
-		value = !value;
+		negation = !negation;
 		return this;
 	}
 
 	public int getId() {
 		return id;
 	}
+	
+	public Literal clone() {
+		return new Literal(id, negation);
+	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, value);
+		return Objects.hash(id, negation);
 	}
 
 	@Override
@@ -53,12 +54,33 @@ public class Literal {
 			return false;
 		}
 		Literal other = (Literal) obj;
-		return id == other.id && value == other.value;
+		return id == other.id && negation == other.negation;
 	}
 
 	@Override
 	public String toString() {
-		return (isFalse() ? Character.toString(Unicode.NOT) : "") + id;
+		return (isNegated() ? Character.toString(Unicode.NOT) : "") + id;
+	}
+
+	public LogicalState evaulate(Map<Integer, Boolean> bindings) {
+		Boolean binding = bindings.get(id);
+		if(binding != null) {
+			if(binding) {
+				if(negation) {
+					return LogicalState.FALSE;
+				} else {
+					return LogicalState.TRUE;
+				}
+			} else {
+				if(negation) {
+					return LogicalState.TRUE;
+				} else {
+					return LogicalState.FALSE;
+				}
+			}
+		} else {
+			return LogicalState.UNBOUND;
+		}
 	}
 	
 }

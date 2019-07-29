@@ -19,15 +19,24 @@ public class Variable extends Literal {
 		this.name = name;
 	}
 	
+	private Variable(String name, int id, boolean negation) {
+		super(id, negation);
+		this.name = name;
+	}
+	
 	public String getName() {
 		return name;
+	}
+	
+	public Variable clone() {
+		return new Variable(name, id, negation);
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(id, name, value);
+		result = prime * result + Objects.hash(id, name, negation);
 		return result;
 	}
 
@@ -43,12 +52,12 @@ public class Variable extends Literal {
 			return false;
 		}
 		Variable other = (Variable) obj;
-		return id == other.id && Objects.equals(name, other.name) && value == other.value;
+		return id == other.id && Objects.equals(name, other.name) && negation == other.negation;
 	}
 	
 	@Override
 	public String toString() {
-		return (isFalse() ? Character.toString(Unicode.NOT) : "") + name;
+		return (isNegated() ? Character.toString(Unicode.NOT) : "") + name;
 	}
 	
 }

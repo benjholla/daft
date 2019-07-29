@@ -1,13 +1,17 @@
 package daft.sat;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * A conjunction of clauses (c1 and c2 and ... cn) which form a CNF formula
  */
-public class Formula implements Iterable<Clause> {
+public class Formula implements Conjunction, Iterable<Clause> {
 
 	private final LinkedHashSet<Clause> clauses;
 	
@@ -26,9 +30,33 @@ public class Formula implements Iterable<Clause> {
 		return this.clauses.iterator();
 	}
 	
+	 public Stream<Clause> stream() {
+	        return this.clauses.stream();
+	    }
+	
 	@Override
 	public String toString() {
 		return "(" + clauses.stream().map(Clause::toString).collect(Collectors.joining(" " + Unicode.AND + " ")) + ")";
+	}
+
+	@Override
+	public Set<Literal> getLiterals() {
+		Set<Literal> literals = new HashSet<Literal>();
+		for(Clause clause : clauses) {
+			literals.addAll(clause.getLiterals());
+		}
+		return literals;
+	}
+	
+	public LogicalState evaluate(Map<Integer,Boolean> bindings) {
+		LogicalState state = LogicalState.TRUE;
+		for(Clause clause : clauses) {
+			state = state.and(clause.evaluate(bindings));
+			if(state == LogicalState.FALSE || state == LogicalState.UNBOUND) {
+				return state;
+			}
+		}
+		return state;
 	}
 
 }
