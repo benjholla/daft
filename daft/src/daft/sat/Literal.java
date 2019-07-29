@@ -39,7 +39,7 @@ public class Literal {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, negation);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class Literal {
 			return false;
 		}
 		Literal other = (Literal) obj;
-		return id == other.id && negation == other.negation;
+		return id == other.id;
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class Assignment {
 	
 	public boolean isComplete() {
 		// TODO: for efficiency the number of literals should be cached instead of computed at this point
-		return formula.getLiterals().size() == bindings.size();
+		return formula.getLiteralSet().size() == bindings.size();
 	}
 	
 }

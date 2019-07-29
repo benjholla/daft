@@ -12,11 +12,13 @@ public class Variable extends Literal {
 	public Variable(Context context, String name) {
 		super(context.getNumVariables());
 		this.name = name;
+		context.add(this);
 	}
 	
-	public Variable(Context context, String name, boolean value) {
-		super(context.getNumVariables());
+	public Variable(Context context, String name, boolean negation) {
+		super(context.getNumVariables(), negation);
 		this.name = name;
+		context.add(this);
 	}
 	
 	private Variable(String name, int id, boolean negation) {
@@ -31,12 +33,17 @@ public class Variable extends Literal {
 	public Variable clone() {
 		return new Variable(name, id, negation);
 	}
+	
+	public Variable negate() {
+		negation = !negation;
+		return this;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(id, name, negation);
+		result = prime * result + Objects.hash(name);
 		return result;
 	}
 
@@ -52,7 +59,7 @@ public class Variable extends Literal {
 			return false;
 		}
 		Variable other = (Variable) obj;
-		return id == other.id && Objects.equals(name, other.name) && negation == other.negation;
+		return Objects.equals(name, other.name);
 	}
 	
 	@Override

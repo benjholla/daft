@@ -11,7 +11,7 @@ public class Context {
 		return variables.size();
 	}
 	
-	public void addVariable(Variable variable) {
+	void add(Variable variable) {
 		if(variables.contains(variable)) {
 			throw new IllegalArgumentException("Context already contains the given variable");
 		} else {

@@ -1,8 +1,9 @@
 package daft.sat;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,15 +14,17 @@ import java.util.stream.Stream;
  */
 public class Formula implements Conjunction, Iterable<Clause> {
 
-	private final LinkedHashSet<Clause> clauses;
+	protected final List<Clause> clauses;
+	protected final Set<Literal> literalSet;
 	
 	public Formula(Clause... clauses) {
 		if(clauses.length == 0) {
 			throw new IllegalArgumentException("A formula must have at least one clause");
 		}
-		this.clauses = new LinkedHashSet<Clause>();
+		this.clauses = Arrays.asList(clauses);
+		literalSet = new HashSet<Literal>();
 		for(Clause clause : clauses) {
-			this.clauses.add(clause);
+			literalSet.addAll(clause.getLiteralSet());
 		}
 	}
 	
@@ -30,22 +33,18 @@ public class Formula implements Conjunction, Iterable<Clause> {
 		return this.clauses.iterator();
 	}
 	
-	 public Stream<Clause> stream() {
-	        return this.clauses.stream();
-	    }
+	public Stream<Clause> stream() {
+		return this.clauses.stream();
+	}
 	
 	@Override
 	public String toString() {
 		return "(" + clauses.stream().map(Clause::toString).collect(Collectors.joining(" " + Unicode.AND + " ")) + ")";
 	}
-
+	
 	@Override
-	public Set<Literal> getLiterals() {
-		Set<Literal> literals = new HashSet<Literal>();
-		for(Clause clause : clauses) {
-			literals.addAll(clause.getLiterals());
-		}
-		return literals;
+	public Set<Literal> getLiteralSet() {
+		return literalSet;
 	}
 	
 	public LogicalState evaluate(Map<Integer,Boolean> bindings) {

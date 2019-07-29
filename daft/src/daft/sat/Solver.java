@@ -7,7 +7,7 @@ public class Solver {
 	public boolean solve(Formula formula) {
 		boolean sat = false;
 		
-		ArrayList<Literal> worklist = new ArrayList<Literal>(formula.getLiterals());
+		ArrayList<Literal> worklist = new ArrayList<Literal>(formula.getLiteralSet());
 		ArrayList<Assignment> searchTree = new ArrayList<Assignment>();
 		ArrayList<Clause> learnedClauses = new ArrayList<Clause>();
 		

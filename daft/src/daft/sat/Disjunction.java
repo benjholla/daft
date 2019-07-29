@@ -4,6 +4,6 @@ import java.util.Set;
 
 public interface Disjunction {
 
-	public Set<Literal> getLiterals();
+	public Set<Literal> getLiteralSet();
 	
 }

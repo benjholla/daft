@@ -4,6 +4,6 @@ import java.util.Set;
 
 public interface Conjunction {
 
-	public Set<Literal> getLiterals();
-	
+	public Set<Literal> getLiteralSet();
+
 }
