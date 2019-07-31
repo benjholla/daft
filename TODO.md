@@ -1,7 +1,7 @@
 # TODO
 
 ## SAT
-- Problems: [SAT](http://en.wikipedia.org/wiki/Boolean_satisfiability_problem), [MAXSAT](http://en.wikipedia.org/wiki/Maximum_satisfiability_problem), [Pseudo-Boolean](https://en.wikipedia.org/wiki/Pseudo-Boolean_function), [Minimally Unsatisfiable Subset (MUS)](http://www.cril.fr/SAT11/)
+- Problems: [SAT](http://en.wikipedia.org/wiki/Boolean_satisfiability_problem), [MAXSAT](http://en.wikipedia.org/wiki/Maximum_satisfiability_problem), [Pseudo-Boolean](https://en.wikipedia.org/wiki/Pseudo-Boolean_function), [Minimally Unsatisfiable Subset (MUS)](http://www.cril.fr/SAT11/), [2-SAT](https://www.geeksforgeeks.org/2-satisfiability-2-sat-problem/)
 - BDD SAT
 - Normal forms: 
   - desugaring
