@@ -14,17 +14,20 @@ public class Test {
 		Variable c = new Variable(context, "c");
 		Variable d = new Variable(context, "d");
 		
-		Clause clause1 = new Clause(a, bNeg, c);
-		Clause clause2 = new Clause(b, d);
+//		Clause clause1 = new Clause(a, bNeg, c);
+//		Clause clause2 = new Clause(b, d);
 		
-		Formula formula = new Formula(clause1, clause2);
+//		Formula formula = new Formula(clause1, clause2);
+		Formula formula = new Formula(new Clause(b), new Clause(bNeg));
 		System.out.println(formula);
 		
 		Map<Integer,Boolean> bindings = new HashMap<Integer,Boolean>();
 		bindings.put(a.getId(), false);
 		bindings.put(b.getId(), true);
 		bindings.put(c.getId(), false);
-		System.out.println(formula.evaluate(bindings));
+//		System.out.println(formula.evaluate(bindings));
+		
+		System.out.println(NaiveSolver.solve(formula).name());
 	}
 	
 }
