@@ -47,10 +47,10 @@ public class Formula implements Conjunction, Iterable<Clause> {
 		return literalSet;
 	}
 	
-	public LogicalState evaluate(Map<Integer,Boolean> bindings) {
+	public LogicalState evaluate(Map<Literal,Boolean> assignments) {
 		LogicalState state = LogicalState.TRUE;
 		for(Clause clause : clauses) {
-			state = state.and(clause.evaluate(bindings));
+			state = state.and(clause.evaluate(assignments));
 			if(state == LogicalState.FALSE || state == LogicalState.UNBOUND) {
 				return state;
 			}

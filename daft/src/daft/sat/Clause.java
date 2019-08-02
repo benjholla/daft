@@ -43,10 +43,10 @@ public class Clause implements Disjunction, Iterable<Literal> {
 		return this.literals.stream();
 	}
 
-	public LogicalState evaluate(Map<Integer, Boolean> bindings) {
+	public LogicalState evaluate(Map<Literal, Boolean> assignments) {
 		LogicalState state = LogicalState.FALSE;
 		for(Literal literal : literals) {
-			state = state.or(literal.evaulate(bindings));
+			state = state.or(literal.evaulate(assignments));
 		}
 		return state;
 	}

@@ -62,10 +62,10 @@ public class Literal {
 		return (isNegated() ? Character.toString(Unicode.NOT) : "") + id;
 	}
 
-	public LogicalState evaulate(Map<Integer, Boolean> bindings) {
-		Boolean binding = bindings.get(id);
-		if(binding != null) {
-			if(binding) {
+	public LogicalState evaulate(Map<Literal, Boolean> assignments) {
+		Boolean assignment = assignments.get(this);
+		if(assignment != null) {
+			if(assignment) {
 				if(negation) {
 					return LogicalState.FALSE;
 				} else {
