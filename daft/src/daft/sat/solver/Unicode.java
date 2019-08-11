@@ -1,4 +1,4 @@
-package daft.sat;
+package daft.sat.solver;
 
 public class Unicode {
 	

@@ -1,4 +1,4 @@
-package daft.sat;
+package daft.sat.logic;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import daft.sat.solver.Unicode;
 
 /**
  * A clause is a disjunction of a list of literals (a or b or c or ...).
@@ -22,6 +24,14 @@ public class Clause implements Disjunction, Iterable<Literal> {
 			throw new IllegalArgumentException("A clause must have at least one literal");
 		}
 		this.literals = Arrays.asList(literals);
+		this.literalSet = new HashSet<Literal>(this.literals);
+	}
+	
+	public Clause(List<Literal> literals) {
+		if(literals.size() == 0) {
+			throw new IllegalArgumentException("A clause must have at least one literal");
+		}
+		this.literals = literals;
 		this.literalSet = new HashSet<Literal>(this.literals);
 	}
 	

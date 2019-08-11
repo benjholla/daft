@@ -1,7 +1,9 @@
-package daft.sat;
+package daft.sat.logic;
 
 import java.util.Map;
 import java.util.Objects;
+
+import daft.sat.solver.Unicode;
 
 /**
  * A literal has an integer identifier and boolean truth value

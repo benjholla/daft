@@ -1,4 +1,4 @@
-package daft.sat;
+package daft.sat.logic;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import daft.sat.solver.Unicode;
 
 /**
  * A conjunction of clauses (c1 and c2 and ... cn) which form a CNF formula
@@ -28,6 +30,17 @@ public class Formula implements Conjunction, Iterable<Clause> {
 		}
 	}
 	
+	public Formula(List<Clause> clauses) {
+		if(clauses.size() == 0) {
+			throw new IllegalArgumentException("A formula must have at least one clause");
+		}
+		this.clauses = clauses;
+		literalSet = new HashSet<Literal>();
+		for(Clause clause : clauses) {
+			literalSet.addAll(clause.getLiteralSet());
+		}
+	}
+
 	@Override
 	public Iterator<Clause> iterator() {
 		return this.clauses.iterator();

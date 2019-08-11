@@ -1,6 +1,6 @@
 package daft.sat.result;
 
-import daft.sat.Formula;
+import daft.sat.logic.Formula;
 
 public class TimeoutResult extends Result {
 
@@ -10,7 +10,7 @@ public class TimeoutResult extends Result {
 
 	@Override
 	public String toString() {
-		return "TimeoutResult [elapsedTime=" + getElapsedTime() + "]";
+		return "TimeoutResult [elapsedTime=" + getDisplayTime() + "]";
 	}
 
 }

@@ -2,8 +2,8 @@ package daft.sat.result;
 
 import java.util.Map;
 
-import daft.sat.Formula;
-import daft.sat.Literal;
+import daft.sat.logic.Formula;
+import daft.sat.logic.Literal;
 
 public class SatResult extends Result {
 	private Map<Literal,Boolean> assignments;
@@ -23,7 +23,7 @@ public class SatResult extends Result {
 
 	@Override
 	public String toString() {
-		return "SatResult [elapsedTime=" + getElapsedTime() + ", assignments=" + assignments + "]";
+		return "SatResult [elapsedTime=" + getDisplayTime() + ", assignments=" + assignments + "]";
 	}
 	
 }

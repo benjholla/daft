@@ -1,7 +1,13 @@
-package daft.sat;
+package daft.sat.test;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import daft.sat.logic.Clause;
+import daft.sat.logic.Formula;
+import daft.sat.solver.Context;
+import daft.sat.solver.NaiveSolver;
+import daft.sat.solver.Variable;
 
 public class Test {
 
@@ -27,7 +33,7 @@ public class Test {
 		bindings.put(c.getId(), false);
 //		System.out.println(formula.evaluate(bindings));
 		
-		System.out.println(NaiveSolver.solve(formula));
+		System.out.println(new NaiveSolver().solve(formula));
 	}
 	
 }

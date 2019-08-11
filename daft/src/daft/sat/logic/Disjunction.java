@@ -1,4 +1,4 @@
-package daft.sat;
+package daft.sat.logic;
 
 import java.util.Set;
 

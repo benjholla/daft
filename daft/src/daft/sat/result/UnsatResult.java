@@ -1,6 +1,6 @@
 package daft.sat.result;
 
-import daft.sat.Formula;
+import daft.sat.logic.Formula;
 
 public class UnsatResult extends Result {
 	
@@ -10,7 +10,7 @@ public class UnsatResult extends Result {
 
 	@Override
 	public String toString() {
-		return "UnsatResult [elapsedTime=" + getElapsedTime() + "]";
+		return "UnsatResult [elapsedTime=" + getDisplayTime() + "]";
 	}
 	
 }

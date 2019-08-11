@@ -1,4 +1,4 @@
-package daft.sat;
+package daft.sat.solver;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,11 +7,14 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Stack;
 
+import daft.sat.logic.Formula;
+import daft.sat.logic.Literal;
+import daft.sat.logic.LogicalState;
 import daft.sat.result.Result;
 import daft.sat.result.SatResult;
 import daft.sat.result.UnsatResult;
 
-public class NaiveSolver {
+public class NaiveSolver extends Solver {
 	
 	public static class LiteralAssignment {
 
@@ -41,7 +44,7 @@ public class NaiveSolver {
 	private static final Boolean FIRST = true;
 	private static final Boolean SECOND = !FIRST;
 	
-	public static Result solve(Formula formula) {
+	protected Result run(Formula formula) {
 		long start = System.nanoTime();
 //		1) Pick a variable without an assigned truth value. If there are none, return SAT
 //		2) Assign it a truth-value (true/false)
@@ -61,7 +64,7 @@ public class NaiveSolver {
 				return Integer.compare(l1.getId(), l2.getId());
 			}
 		});
-		System.out.println("Literal Search Order: " + unassigned);
+//		System.out.println("Literal Search Order: " + unassigned);
 		
 		Map<Literal,Integer> maxGuesses = new HashMap<Literal,Integer>();
 		Map<Literal,Integer> guesses = new HashMap<Literal,Integer>();
@@ -87,9 +90,10 @@ public class NaiveSolver {
 		// instead of adding them as we go and letting the stack get big
 		
 		while(!search.isEmpty()) {
+//			System.out.println("Searching: " + search);
+			
 			// get the next literal assignment to try
 			LiteralAssignment assignment = search.pop();
-			System.out.println("Trying: " + assignment);
 			
 			// increment the number of guesses we have completed for the literal
 			Integer previousGuesses = guesses.get(assignment.getLiteral());
@@ -101,6 +105,8 @@ public class NaiveSolver {
 			
 			// check the guess result
 			assignments.put(assignment.getLiteral(), assignment.getValue());
+//			System.out.println("Trying: " + assignments);
+			
 			LogicalState state = formula.evaluate(assignments);
 			if(state == LogicalState.TRUE) {
 				// sat assignment found
@@ -119,13 +125,16 @@ public class NaiveSolver {
 				}
 			}  else {
 				// contradiction found
-				if(previousGuesses % 2 == 1){
-					// try the other truth value
+//				System.out.println("Conflict.");
+				assignments.remove(assignment.getLiteral());
+				unassigned.add(assignment.getLiteral());
+//				if(previousGuesses % 2 == 1){
+//					// try the other truth value
 //					System.out.println("Trying other truth value for " + assignment.getLiteral());
-				} else {
-					// backtrack
+//				} else {
+//					// backtrack
 //					System.out.println("Backtracking...");
-				}
+//				}
 			}
 		}
 		

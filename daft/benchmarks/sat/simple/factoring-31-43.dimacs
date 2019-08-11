@@ -1,0 +1,14 @@
+p cnf 11 11 
+c Factors encoded in variables 1-6 and 7-11
+c Target number: 1333
+-5 0
+1 0
+2 0
+-3 0
+8 0
+9 0
+4 0
+10 0
+11 0
+6 0
+7 0

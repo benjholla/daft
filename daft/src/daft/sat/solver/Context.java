@@ -1,4 +1,4 @@
-package daft.sat;
+package daft.sat.solver;
 
 import java.util.HashSet;
 import java.util.Set;

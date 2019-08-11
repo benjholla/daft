@@ -1,6 +1,8 @@
-package daft.sat;
+package daft.sat.solver;
 
 import java.util.Objects;
+
+import daft.sat.logic.Literal;
 
 /**
  * A variable is a named literal within a given context

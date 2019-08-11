@@ -1,4 +1,4 @@
-package daft.sat;
+package daft.sat.logic;
 
 public class UnitClause extends Clause {
 
