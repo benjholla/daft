@@ -95,6 +95,9 @@ public class NaiveSolver extends Solver {
 			// get the next literal assignment to try
 			LiteralAssignment assignment = search.pop();
 			
+			// set the assignment guess
+			assignments.put(assignment.getLiteral(), assignment.getValue());
+			
 			// increment the number of guesses we have completed for the literal
 			Integer previousGuesses = guesses.get(assignment.getLiteral());
 			if(previousGuesses == null) {
@@ -103,10 +106,9 @@ public class NaiveSolver extends Solver {
 			previousGuesses=previousGuesses+1;
 			guesses.put(assignment.getLiteral(), previousGuesses);
 			
-			// check the guess result
-			assignments.put(assignment.getLiteral(), assignment.getValue());
 //			System.out.println("Trying: " + assignments);
 			
+			// check the guess result
 			LogicalState state = formula.evaluate(assignments);
 			if(state == LogicalState.TRUE) {
 				// sat assignment found

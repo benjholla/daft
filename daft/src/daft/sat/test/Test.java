@@ -16,7 +16,7 @@ public class Test {
 		
 		Variable a = new Variable(context, "a");
 		Variable b = new Variable(context, "b");
-		Variable bNeg = b.clone().negate();
+		Variable bNeg = b.getNegated();
 		Variable c = new Variable(context, "c");
 		Variable d = new Variable(context, "d");
 		

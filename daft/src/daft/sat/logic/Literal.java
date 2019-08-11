@@ -26,16 +26,21 @@ public class Literal {
 		return negation;
 	}
 	
-	public Literal negate() {
+	public void negate() {
 		negation = !negation;
-		return this;
+	}
+	
+	public Literal getNegated() {
+		Literal l = this.copy();
+		l.negate();
+		return l;
 	}
 
 	public int getId() {
 		return id;
 	}
 	
-	public Literal clone() {
+	protected Literal copy() {
 		return new Literal(id, negation);
 	}
 

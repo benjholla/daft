@@ -1,7 +1,6 @@
 package daft.sat.logic;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -23,16 +22,16 @@ public class Clause implements Disjunction, Iterable<Literal> {
 		if(literals.length == 0) {
 			throw new IllegalArgumentException("A clause must have at least one literal");
 		}
-		this.literals = Arrays.asList(literals);
-		this.literalSet = new HashSet<Literal>(this.literals);
+		this.literals = Arrays.stream(literals).map(l -> l.isNegated() ? l.getNegated() : l).collect(Collectors.toList());
+		this.literalSet = this.literals.stream().map(l -> l.isNegated() ? l.getNegated() : l).collect(Collectors.toSet());
 	}
 	
 	public Clause(List<Literal> literals) {
 		if(literals.size() == 0) {
 			throw new IllegalArgumentException("A clause must have at least one literal");
 		}
-		this.literals = literals;
-		this.literalSet = new HashSet<Literal>(this.literals);
+		this.literals = literals.stream().map(l -> l.isNegated() ? l.getNegated() : l).collect(Collectors.toList());
+		this.literalSet = this.literals.stream().map(l -> l.isNegated() ? l.getNegated() : l).collect(Collectors.toSet());
 	}
 	
 	@Override

@@ -32,15 +32,20 @@ public class Variable extends Literal {
 		return name;
 	}
 	
-	public Variable clone() {
+	public Variable copy() {
 		return new Variable(name, id, negation);
 	}
 	
-	public Variable negate() {
+	public void negate() {
 		negation = !negation;
-		return this;
 	}
 
+	public Variable getNegated() {
+		Variable v = this.copy();
+		v.negate();
+		return v;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

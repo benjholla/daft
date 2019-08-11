@@ -14,7 +14,7 @@ import daft.sat.solver.NaiveSolver;
 public class Test2 {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		File testDir = new File("." + File.separator + "benchmarks" + File.separator + "sat" + File.separator + "simple");
+		File testDir = new File("." + File.separator + "benchmarks" + File.separator + "sat");
 		for(File file : testDir.listFiles()) {
 			if(file.getName().toLowerCase().endsWith(".cnf") || file.getName().toLowerCase().endsWith(".dimacs")) {
 //				Formula formula = new DIMACSParser().parse(new File("./benchmarks/sat/2.cnf"));

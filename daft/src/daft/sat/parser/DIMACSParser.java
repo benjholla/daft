@@ -65,7 +65,7 @@ public class DIMACSParser implements Parser {
 							String strippedVariableName = variableName.replace("-", "");
 							Variable v = new Variable(context, strippedVariableName);
 							variables.put(strippedVariableName, v);
-							variables.put("-" + strippedVariableName, v.clone().negate());
+							variables.put("-" + strippedVariableName, v.getNegated());
 							variable = variables.get(variableName);
 						}
 						clauseVariables.add(variable);
